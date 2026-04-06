@@ -4251,6 +4251,7 @@ exports.processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, vDebu
     var vList = pList;
     var vComb = false;
     var i = 0;
+    var task = pList[pRow];
     for (i = 0; i < pList.length; i++) {
         if (pList[i].getToDelete()) {
             pList.splice(i, 1);
@@ -4306,11 +4307,11 @@ exports.processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, vDebu
         if (pList[pRow].getGroupMinEnd() != null && pList[pRow].getGroupMinEnd() > vMaxDate) {
             vMaxDate = pList[pRow].getGroupMinEnd();
         }
-        if (vMinDate) {
-            pList[pRow].setStart(vMinDate);
+        if (vMinDate && !task.getStartVar()) {
+            task.setStart(vMinDate);
         }
-        if (vMaxDate) {
-            pList[pRow].setEnd(vMaxDate);
+        if (vMaxDate && !task.getEndVar()) {
+            task.setEnd(vMaxDate);
         }
         if (pList[pRow].getGroupMinPlanStart() != null && pList[pRow].getGroupMinPlanStart() < vMinPlanDate) {
             vMinPlanDate = pList[pRow].getGroupMinPlanStart();
@@ -4318,11 +4319,11 @@ exports.processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, vDebu
         if (pList[pRow].getGroupMinPlanEnd() != null && pList[pRow].getGroupMinPlanEnd() > vMaxPlanDate) {
             vMaxPlanDate = pList[pRow].getGroupMinPlanEnd();
         }
-        if (vMinPlanDate) {
-            pList[pRow].setPlanStart(vMinPlanDate);
+        if (vMinPlanDate && !task.getPLanStart()) {
+            task.setPlanStart(vMinPlanDate);
         }
-        if (vMaxPlanDate) {
-            pList[pRow].setPlanEnd(vMaxPlanDate);
+        if (vMaxPlanDate && !task.getPlanEnd()) {
+            task.setPlanEnd(vMaxPlanDate);
         }
         pList[pRow].setNumKid(vNumKid);
         pList[pRow].setWeight(vWeight);
