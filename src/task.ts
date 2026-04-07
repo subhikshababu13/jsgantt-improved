@@ -635,7 +635,7 @@ export const processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, 
     if (pList[pRow].getGroupMinPlanEnd() != null && pList[pRow].getGroupMinPlanEnd() > vMaxPlanDate) {
       vMaxPlanDate = pList[pRow].getGroupMinPlanEnd();
     }
-    if (vMinPlanDate && !task.getPLanStart()) {
+    if (vMinPlanDate && !task.getPlanStart()) {
       task.setPlanStart(vMinPlanDate);
     }
     if (vMaxPlanDate && !task.getPlanEnd()) {
