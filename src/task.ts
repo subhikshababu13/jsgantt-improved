@@ -911,7 +911,6 @@ export const processRows = function (
   let vList = pList;
   let vComb = false;
   let i = 0;
-  console.log("Working");
 
   for (i = 0; i < pList.length; i++) {
     if (pList[i].getToDelete()) {
