@@ -6,4 +6,3 @@ package-lock.json
 dist/src
 dist/e2e
 dist/test
-dist/index.*
