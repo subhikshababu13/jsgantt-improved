@@ -4423,7 +4423,6 @@ exports.processRows = function (pList, pID, pRow, pLevel, pOpen, pUseSort, vDebu
     var vList = pList;
     var vComb = false;
     var i = 0;
-    console.log("Working");
     for (i = 0; i < pList.length; i++) {
         if (pList[i].getToDelete()) {
             pList.splice(i, 1);
